@@ -77,6 +77,11 @@ sandbox: neard-sandbox
 	ln -f sandbox/debug/neard target/debug/neard-sandbox
 	@ln -f sandbox/debug/neard target/debug/near-sandbox
 
+wasmcov: sandbox-release
+	rm -rf ~/.near
+	./sandbox/release/neard init
+	./sandbox/release/neard run
+
 neard-sandbox:
 	cargo build -p neard --features sandbox
 
